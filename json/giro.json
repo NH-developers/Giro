@@ -1,0 +1,830 @@
+{
+	"swagger": "2.0",
+	"schemes" : ["https"],
+	"host": "developers.nonghyup.com",
+	"tags": [
+		{
+			"name": "4.지로공과금"
+		}
+	],
+	"paths": {
+		"/InquireSewageFarePayment.nh": {
+			"post": {
+				"tags": [
+					"4.지로공과금"
+				],
+				"summary": "상하수도요금납부선조회",
+				"description": "상하수도요금 납부 정보를 조회한다.",
+				"consumes": [
+					"application/json"
+				],
+				"produces": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"in": "body",
+						"name": "param",
+						"description": "param",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/InquireSewageFarePaymentRequestData"
+						}
+					}
+				],
+				"responses": {
+					
+				},
+				"deprecated": false
+			}
+		},
+		"/SewageFarePayment.nh": {
+			"post": {
+				"tags": [
+					"4.지로공과금"
+				],
+				"summary": "상하수도요금납부",
+				"description": "조회한 납부 정보로 상하수도요금을 납부한다.",
+				"consumes": [
+					"application/json"
+				],
+				"produces": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"in": "body",
+						"name": "param",
+						"description": "param",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/SewageFarePaymentRequestData"
+						}
+					}
+				],
+				"responses": {
+					
+				},
+				"deprecated": false
+			}
+		},
+		"/InquireSewageFarePaymentHistory.nh": {
+			"post": {
+				"tags": [
+					"4.지로공과금"
+				],
+				"summary": "상하수도요금 납부내역 조회",
+				"description": "상하수도요금 납부 내역을 조회한다.",
+				"consumes": [
+					"application/json"
+				],
+				"produces": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"in": "body",
+						"name": "param",
+						"description": "param",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/InquireSewageFarePaymentHistoryRequestData"
+						}
+					}
+				],
+				"responses": {
+					
+				},
+				"deprecated": false
+			}
+		},
+		"/InquireElectricityFarePayment.nh": {
+			"post": {
+				"tags": [
+					"4.지로공과금"
+				],
+				"summary": "전기요금 납부 선조회",
+				"description": "전기요금 납부 정보를 조회한다.",
+				"consumes": [
+					"application/json"
+				],
+				"produces": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"in": "body",
+						"name": "param",
+						"description": "param",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/InquireElectricityFarePaymentRequestData"
+						}
+					}
+				],
+				"responses": {
+					
+				},
+				"deprecated": false
+			}
+		},
+		"/ElectricityFarePayment.nh": {
+			"post": {
+				"tags": [
+					"4.지로공과금"
+				],
+				"summary": "전기요금 납부",
+				"description": "조회한 납부 정보로 전기요금을 납부한다.",
+				"consumes": [
+					"application/json"
+				],
+				"produces": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"in": "body",
+						"name": "param",
+						"description": "param",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/ElectricityFarePaymentRequestData"
+						}
+					}
+				],
+				"responses": {
+					
+				},
+				"deprecated": false
+			}
+		},
+		"/InquireElectricityFarePaymentHistory.nh": {
+			"post": {
+				"tags": [
+					"4.지로공과금"
+				],
+				"summary": "전기요금 납부내역 조회",
+				"description": "전기요금 납부 내역을 조회한다.",
+				"consumes": [
+					"application/json"
+				],
+				"produces": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"in": "body",
+						"name": "param",
+						"description": "param",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/InquireElectricityFarePaymentHistoryRequestData"
+						}
+					}
+				],
+				"responses": {
+					
+				},
+				"deprecated": false
+			}
+		}
+	},
+	"definitions": {
+		"InquireElectricityFarePaymentHistoryRequestData": {
+			"type": "object",
+			"required": [
+				"Header",
+				"ElecPayNo",
+				"PageNo",
+				"Insymd",
+				"Ineymd"
+			],
+			"properties": {
+				"Header": {
+					"$ref": "#/definitions/InquireElectricityFarePaymentHistoryHeader"
+				},
+				"ElecPayNo": {
+					"type": "string",
+					"example": "0606628088",
+					"description": "전자납부번호"
+				},
+				"PageNo": {
+					"type": "string",
+					"example": "1",
+					"description": "페이지번호"
+				},
+				"Insymd": {
+					"type": "string",
+					"example": "20191010",
+					"description": "조회시작일자"
+				},
+				"Ineymd": {
+					"type": "string",
+					"example": "20191010",
+					"description": "조회종료일자"
+				}
+			},
+			"title": "InquireElectricityFarePaymentHistoryRequestData"
+		},
+		"ElectricityFarePaymentRequestData": {
+			"type": "object",
+			"required": [
+				"Header",
+				"PbtxGroNo",
+				"ElecPayNo",
+				"CustInqNo",
+				"TaxtYm",
+				"NtfFrmt",
+				"IssShp",
+				"Etc",
+				"Tram",
+				"Acno",
+				"Tlno",
+				"MmbrRrno",
+				"PryFlnm",
+				"TrSbjcSrchNm"
+			],
+			"properties": {
+				"Header": {
+					"$ref": "#/definitions/ElectricityFarePaymentHeader"
+				},
+				"PbtxGroNo": {
+					"type": "string",
+					"example": "0420007",
+					"description": "공과금지로번호"
+				},
+				"ElecPayNo": {
+					"type": "string",
+					"example": "0606628088",
+					"description": "전자납부번호"
+				},
+				"CustInqNo": {
+					"type": "string",
+					"example": "19014601060662808823",
+					"description": "고객조회번호"
+				},
+				"TaxtYm": {
+					"type": "string",
+					"example": "201909",
+					"description": "과세년월"
+				},
+				"NtfFrmt": {
+					"type": "string",
+					"example": "0",
+					"description": "고지형태"
+				},
+				"IssShp": {
+					"type": "string",
+					"example": "4",
+					"description": "발행형태"
+				},
+				"Etc": {
+					"type": "string",
+					"example": "01",
+					"description": "기타"
+				},
+				"Tram": {
+					"type": "string",
+					"example": "9230",
+					"description": "거래금액"
+				},
+				"Acno": {
+					"type": "string",
+					"example": "3020000000071",
+					"description": "계좌번호"
+				},
+				"Tlno": {
+					"type": "string",
+					"example": "01012345678",
+					"description": "전화번호"
+				},
+				"MmbrRrno": {
+					"type": "string",
+					"example": "9912311234567",
+					"description": "회원 주민/사업자번호"
+				},
+				"PryFlnm": {
+					"type": "string",
+					"example": "홍길남",
+					"description": "납부자성명"
+				},
+				"TrSbjcSrchNm": {
+					"type": "string",
+					"example": "주택관리공단",
+					"description": "거래기록사항"
+				}
+			},
+			"title": "ElectricityFarePaymentRequestData"
+		},
+		"InquireElectricityFarePaymentRequestData": {
+			"type": "object",
+			"required": [
+				"Header",
+				"ElecPayNo",
+				"Acno"
+			],
+			"properties": {
+				"Header": {
+					"$ref": "#/definitions/InquireElectricityFarePaymentHeader"
+				},
+				"ElecPayNo": {
+					"type": "string",
+					"example": "0606628088",
+					"description": "전자납부번호"
+				},
+				"Acno": {
+					"type": "string",
+					"example": "3020000000071",
+					"description": "계좌번호"
+				}
+			},
+			"title": "InquireElectricityFarePaymentRequestData"
+		},
+		"InquireSewageFarePaymentHistoryRequestData": {
+			"type": "object",
+			"required": [
+				"Header",
+				"ElecPayNo",
+				"PageNo",
+				"Insymd",
+				"PageNo"
+			],
+			"properties": {
+				"Header": {
+					"$ref": "#/definitions/InquireSewageFarePaymentHistoryHeader"
+				},
+				"ElecPayNo": {
+					"type": "string",
+					"example": "2632001709000428753",
+					"description": "전자납부번호"
+				},
+				"PageNo": {
+					"type": "string",
+					"example": "1",
+					"description": "페이지번호"
+				},
+				"Insymd": {
+					"type": "string",
+					"example": "20191108",
+					"description": "조회시작일자"
+				},
+				"Ineymd": {
+					"type": "string",
+					"example": "20191108",
+					"description": "조회종료일자"
+				}
+			},
+			"title": "InquireSewageFarePaymentHistoryRequestData"
+		},
+		"SewageFarePaymentRequestData": {
+			"type": "object",
+			"required": [
+				"Header",
+				"PbtxGroNo",
+				"PbtxInstClasCd",
+				"PbtxPytxno",
+				"PbtxElcrPmntNo",
+				"Acno",
+				"PayRcrdSbjcCntn",
+				"Tram",
+				"Isnm",
+				"TmpmWthnDay",
+				"PryNm",
+				"PageNo"
+			],
+			"properties": {
+				"Header": {
+					"$ref": "#/definitions/SewageFarePaymentHeader"
+				},
+				"PbtxGroNo": {
+					"type": "string",
+					"example": "1004102",
+					"description": "공과금지로번호"
+				},
+				"PbtxInstClasCd": {
+					"type": "string",
+					"example": "26",
+					"description": "공과금기관분류코드"
+				},
+				"PbtxPytxno": {
+					"type": "string",
+					"example": "2632017557510042632000017091002",
+					"description": "공과금납세번호"
+				},
+				"PbtxElcrPmntNo": {
+					"type": "string",
+					"example": "2632001709000428753",
+					"description": "공과금전자납부번호"
+				},
+				"Acno": {
+					"type": "string",
+					"example": "3020000000071",
+					"description": "계좌번호"
+				},
+				"PayRcrdSbjcCntn": {
+					"type": "string",
+					"example": "주택관리공단",
+					"description": "납부기록사항"
+				},
+				"Tram": {
+					"type": "string",
+					"example": "733120",
+					"description": "거래금액"
+				},
+				"Isnm": {
+					"type": "string",
+					"example": "부산광역시",
+					"description": "기관명"
+				},
+				"TmpmWthnDay": {
+					"type": "string",
+					"example": "20191130",
+					"description": "납기내일자"
+				},
+				"PryNm": {
+					"type": "string",
+					"example": "홍길남",
+					"description": "납부자명"
+				},
+				"TxitNm": {
+					"type": "string",
+					"example": "상하수도요금",
+					"description": "세목명"
+				}
+			},
+			"title": "SewageFarePaymentRequestData"
+		},
+		"InquireSewageFarePaymentRequestData": {
+			"type": "object",
+			"required": [
+				"Header",
+				"ElecCsmrNo",
+				"Acno",
+				"PageNo"
+			],
+			"properties": {
+				"Header": {
+					"$ref": "#/definitions/InquireSewageFarePaymentHeader"
+				},
+				"ElecCsmrNo": {
+					"type": "string",
+					"example": "263201755751004",
+					"description": "전자수용가번호"
+				},
+				"Acno": {
+					"type": "string",
+					"example": "3020000000071",
+					"description": "계좌번호"
+				},
+				"PageNo": {
+					"type": "string",
+					"example": "1",
+					"description": "페이지번호"
+				}
+			},
+			"title": "InquireSewageFarePaymentRequestData"
+		},
+		"InquireSewageFarePaymentHeader": {
+			"type": "object",
+			"required": [
+				"AccessToken",
+				"ApiNm",
+				"ApiSvcCd",
+				"FintechApsno",
+				"IsTuno",
+				"Iscd",
+				"Trtm",
+				"Tsymd"
+			],
+			"properties": {
+				"ApiNm": {
+					"type": "string",
+					"example": "InquireSewageFarePayment",
+					"description": "API명"
+				},
+				"Tsymd": {
+					"type": "string",
+					"example": "오늘날짜를입력하세요",
+					"description": "전송일자"
+				},
+				"Trtm": {
+					"type": "string",
+					"example": "112428",
+					"description": "전송시각"
+				},
+				"Iscd": {
+					"type": "string",
+					"example": "기관코드를입력하세요",
+					"description": "기관코드"
+				},
+				"FintechApsno": {
+					"type": "string",
+					"example": "001",
+					"description": "핀테크앱일련번호"
+				},
+				"ApiSvcCd": {
+					"type": "string",
+					"example": "13E_002_00",
+					"description": "API 서비스코드"
+				},
+				"IsTuno": {
+					"type": "string",
+					"example": "0000",
+					"description": "기관 거래고유번호"
+				},
+				"AccessToken": {
+					"type": "string",
+					"example": "인증키를입력하세요",
+					"description": "접근토큰"
+				}
+			},
+			"title": "InquireSewageFarePaymentHeader",
+			"description": "공통부"
+		},
+		"SewageFarePaymentHeader": {
+			"type": "object",
+			"required": [
+				"AccessToken",
+				"ApiNm",
+				"ApiSvcCd",
+				"FintechApsno",
+				"IsTuno",
+				"Iscd",
+				"Trtm",
+				"Tsymd"
+			],
+			"properties": {
+				"ApiNm": {
+					"type": "string",
+					"example": "SewageFarePayment",
+					"description": "API명"
+				},
+				"Tsymd": {
+					"type": "string",
+					"example": "오늘날짜를입력하세요",
+					"description": "전송일자"
+				},
+				"Trtm": {
+					"type": "string",
+					"example": "112428",
+					"description": "전송시각"
+				},
+				"Iscd": {
+					"type": "string",
+					"example": "기관코드를입력하세요",
+					"description": "기관코드"
+				},
+				"FintechApsno": {
+					"type": "string",
+					"example": "001",
+					"description": "핀테크앱일련번호"
+				},
+				"ApiSvcCd": {
+					"type": "string",
+					"example": "13E_002_00",
+					"description": "API 서비스코드"
+				},
+				"IsTuno": {
+					"type": "string",
+					"example": "0000",
+					"description": "기관 거래고유번호"
+				},
+				"AccessToken": {
+					"type": "string",
+					"example": "인증키를입력하세요",
+					"description": "접근토큰"
+				}
+			},
+			"title": "SewageFarePaymentHeader",
+			"description": "공통부"
+		},
+		"InquireSewageFarePaymentHistoryHeader": {
+			"type": "object",
+			"required": [
+				"AccessToken",
+				"ApiNm",
+				"ApiSvcCd",
+				"FintechApsno",
+				"IsTuno",
+				"Iscd",
+				"Trtm",
+				"Tsymd"
+			],
+			"properties": {
+				"ApiNm": {
+					"type": "string",
+					"example": "InquireSewageFarePaymentHistory",
+					"description": "API명"
+				},
+				"Tsymd": {
+					"type": "string",
+					"example": "오늘날짜를입력하세요",
+					"description": "전송일자"
+				},
+				"Trtm": {
+					"type": "string",
+					"example": "112428",
+					"description": "전송시각"
+				},
+				"Iscd": {
+					"type": "string",
+					"example": "기관코드를입력하세요",
+					"description": "기관코드"
+				},
+				"FintechApsno": {
+					"type": "string",
+					"example": "001",
+					"description": "핀테크앱일련번호"
+				},
+				"ApiSvcCd": {
+					"type": "string",
+					"example": "13E_002_00",
+					"description": "API 서비스코드"
+				},
+				"IsTuno": {
+					"type": "string",
+					"example": "0000",
+					"description": "기관 거래고유번호"
+				},
+				"AccessToken": {
+					"type": "string",
+					"example": "인증키를입력하세요",
+					"description": "접근토큰"
+				}
+			},
+			"title": "InquireSewageFarePaymentHistoryHeader",
+			"description": "공통부"
+		},
+		"InquireElectricityFarePaymentHeader": {
+			"type": "object",
+			"required": [
+				"AccessToken",
+				"ApiNm",
+				"ApiSvcCd",
+				"FintechApsno",
+				"IsTuno",
+				"Iscd",
+				"Trtm",
+				"Tsymd"
+			],
+			"properties": {
+				"ApiNm": {
+					"type": "string",
+					"example": "InquireElectricityFarePayment",
+					"description": "API명"
+				},
+				"Tsymd": {
+					"type": "string",
+					"example": "오늘날짜를입력하세요",
+					"description": "전송일자"
+				},
+				"Trtm": {
+					"type": "string",
+					"example": "112428",
+					"description": "전송시각"
+				},
+				"Iscd": {
+					"type": "string",
+					"example": "기관코드를입력하세요",
+					"description": "기관코드"
+				},
+				"FintechApsno": {
+					"type": "string",
+					"example": "001",
+					"description": "핀테크앱일련번호"
+				},
+				"ApiSvcCd": {
+					"type": "string",
+					"example": "13E_001_00",
+					"description": "API 서비스코드"
+				},
+				"IsTuno": {
+					"type": "string",
+					"example": "0000",
+					"description": "기관 거래고유번호"
+				},
+				"AccessToken": {
+					"type": "string",
+					"example": "인증키를입력하세요",
+					"description": "접근토큰"
+				}
+			},
+			"title": "InquireElectricityFarePaymentHeader",
+			"description": "공통부"
+		},
+		"ElectricityFarePaymentHeader": {
+			"type": "object",
+			"required": [
+				"AccessToken",
+				"ApiNm",
+				"ApiSvcCd",
+				"FintechApsno",
+				"IsTuno",
+				"Iscd",
+				"Trtm",
+				"Tsymd"
+			],
+			"properties": {
+				"ApiNm": {
+					"type": "string",
+					"example": "ElectricityFarePayment",
+					"description": "API명"
+				},
+				"Tsymd": {
+					"type": "string",
+					"example": "오늘날짜를입력하세요",
+					"description": "전송일자"
+				},
+				"Trtm": {
+					"type": "string",
+					"example": "112428",
+					"description": "전송시각"
+				},
+				"Iscd": {
+					"type": "string",
+					"example": "기관코드를입력하세요",
+					"description": "기관코드"
+				},
+				"FintechApsno": {
+					"type": "string",
+					"example": "001",
+					"description": "핀테크앱일련번호"
+				},
+				"ApiSvcCd": {
+					"type": "string",
+					"example": "13E_001_00",
+					"description": "API 서비스코드"
+				},
+				"IsTuno": {
+					"type": "string",
+					"example": "0000",
+					"description": "기관 거래고유번호"
+				},
+				"AccessToken": {
+					"type": "string",
+					"example": "인증키를입력하세요",
+					"description": "접근토큰"
+				}
+			},
+			"title": "ElectricityFarePaymentHeader",
+			"description": "공통부"
+		},
+		"InquireElectricityFarePaymentHistoryHeader": {
+			"type": "object",
+			"required": [
+				"AccessToken",
+				"ApiNm",
+				"ApiSvcCd",
+				"FintechApsno",
+				"IsTuno",
+				"Iscd",
+				"Trtm",
+				"Tsymd"
+			],
+			"properties": {
+				"ApiNm": {
+					"type": "string",
+					"example": "InquireElectricityFarePaymentHistory",
+					"description": "API명"
+				},
+				"Tsymd": {
+					"type": "string",
+					"example": "오늘날짜를입력하세요",
+					"description": "전송일자"
+				},
+				"Trtm": {
+					"type": "string",
+					"example": "112428",
+					"description": "전송시각"
+				},
+				"Iscd": {
+					"type": "string",
+					"example": "기관코드를입력하세요",
+					"description": "기관코드"
+				},
+				"FintechApsno": {
+					"type": "string",
+					"example": "001",
+					"description": "핀테크앱일련번호"
+				},
+				"ApiSvcCd": {
+					"type": "string",
+					"example": "13E_001_00",
+					"description": "API 서비스코드"
+				},
+				"IsTuno": {
+					"type": "string",
+					"example": "0000",
+					"description": "기관 거래고유번호"
+				},
+				"AccessToken": {
+					"type": "string",
+					"example": "인증키를입력하세요",
+					"description": "접근토큰"
+				}
+			},
+			"title": "InquireElectricityFarePaymentHistoryHeader",
+			"description": "공통부"
+		}
+	}
+}
